@@ -1,0 +1,437 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+  }
+  
+  html, body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  /* overflow: hidden; */
+  scroll-behavior: smooth;
+  }
+  #main{
+    min-height: 100%;
+    width: 100%;
+    background-color: #000000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+  }
+  .di{
+    font-size: 2.5vw;
+    background-color: yellowgreen;
+    padding: 10px 15px;
+    border-radius: 50%;
+  
+    position: fixed;
+    right: 2%;
+    z-index: 9;
+    display: none;
+  }
+  .di i{
+    color: #000;
+  }
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  .left{
+    height: 100%;
+    width: 20%;
+    background-color: #121212;
+  }
+  .left button{
+    font-size: 30px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 16px;
+    gap: 25px;
+    cursor: pointer;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .left button p{
+    font-size: 18px;
+  
+  }
+  a{
+    text-decoration: none;
+  }
+  .left button:hover{
+    background-color: #333;
+  }
+  .currentsong{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    background-color: #252525;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 7px;
+    border-radius: 7px;
+    margin: 7px;
+    position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow: hidden;
+    text-align: center;
+    gap: 5px;
+  
+  }
+  .currentsong .text h5,
+  .currentsong .text p{
+    margin-top: 5%;
+    max-width: 120px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .currentsong img{
+    height: 100%;
+    width: 40%;
+    border-radius: 50%;
+    /* height: 180px;
+    width: 175px; */
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .di{
+    display: none;
+    font-size: 2.4vw;
+    font-weight: 600;
+    margin-top: 0.5%;
+  }
+  .right{
+    height: 100%;
+    width: 80%;
+    background-color: #121212;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  
+  
+  }
+  #int {
+    padding: 10px 20px;
+    width: 80%;
+    margin-left: 10%;
+  
+  }
+  #in {
+    padding: 10px 20px;
+  
+    width: 50%;
+    margin-left: 13%;
+    font-size: 1.4vw;
+    margin-top: 2%;
+    border-radius: 50px;
+  
+  }
+  
+  #play{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  /* padding-left: 27%; */
+  }
+  #play p{
+  margin-right: 37%;
+    
+  }
+  #nam{
+    height: 100px;
+    width: 100%;
+    /* background-color: red; */
+  }
+  #nam h5{
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-left: 26%;
+  }
+  .playlis{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #searchpage{
+    font-size: 2vw;
+    margin-left: 40%;
+  }
+  #delete{
+    margin-right: 2%;
+    font-size: 1.4vw;
+  }
+  #plnam{
+    margin-left: 20%;
+    display: none;
+    padding: 10px 10px;
+  }
+  #inpt{
+  padding: 10px 20px;
+  width: 80%;
+  }
+  .song{
+    background-color: #252525;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding:12px;
+    border-radius: 7px;
+  
+    margin: 10px;
+  
+    position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  
+  
+  }
+  .song .text h5,
+  .song .text p{
+    max-width: 150px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .song img{
+    width: 100%;
+    /* height: 180px;
+    width: 175px; */
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #cver{
+    width: 93%;
+    height: 186px;
+    background-color: rgba(22, 22, 22, 0.315);
+    position: absolute;
+    top: 0;
+  
+  }
+  .song .playbutton{
+    position: absolute;
+    /* bottom: 0; */
+    top: 62%;
+    left: 80%;
+  overflow: hidden;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    font-size: 50px;
+    opacity: 0;
+  
+  cursor: pointer;
+  -webkit-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  }
+  .song:hover .playbutton{
+   top: 50%;
+    opacity: 1;
+  }
+  .song .playbutton i{
+    color: rgb(86, 214, 26);
+  }
+  .music{
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  }
+  audio{
+    position: fixed;
+    bottom: 20px;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    left: 50%;
+  }
+  .icons{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 2%;
+    font-size: 1.6vw;
+  }
+  
+  @media (max-width:600px) {
+  .left{
+    height: 100vh;
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    z-index: 99;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+  
+  }
+    .left button{
+      font-size: 40px;
+    }
+    .left button p{
+      font-size: 28px;
+    }
+    .currentsong{
+      
+      
+     
+      gap:22px;
+    
+    }
+    .currentsong .text h5,
+    .currentsong .text p{
+      margin-top: 10%;
+      max-width: 270px;
+      overflow: hidden;
+      font-size: 5vw;
+      -o-text-overflow: ellipsis;
+         text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    #pl{
+    padding: 2% 13%;
+    margin-left: -10%;
+    }
+    #play p{
+      margin-left: -21%;
+    }
+  
+    #nam{
+      width: 80%;
+      /* background-color: red; */
+      margin-left:13%;
+    }
+    #nam h5{
+    font-size: 5vw;
+    font-weight: 600;
+    margin-left: 0.5%;
+    }
+    #delete{
+      margin-right: -3%;
+      font-size: 5vw;
+    }
+    #plnam{
+      margin: 1% -2.3%;   
+      padding: 10px 10px;
+    }
+    .playlis h5{
+      font-size: 7vw;
+      margin-left: 10%;
+      padding-left:3%;
+    }
+    #searchpage{
+      font-size: 7vw;
+      margin-left: 2%;
+      padding-left:18%;
+    }
+    #inpt{
+    padding: 13px 5px;
+    width: 58%;
+      font-size:3.9vw;
+      font-weight:600;
+    }
+  
+    #in {
+      padding: 10px 15px;
+      width: 60%;
+      font-size: 5vw;
+      font-weight: 600;
+      margin-left: 19%;
+      display: block;
+      margin-top: 2%;
+  
+  
+    
+    }
+    .di{
+      display: block;
+      font-size: 6vw;
+      font-weight: 600;
+      margin-top: 0.7%;
+      z-index: 9999 ;
+    }
+    .right{
+      height: 100%;
+      width: 100%;
+      background-color: #121212;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    
+      -ms-flex-wrap: wrap;
+    
+          flex-wrap: wrap;
+    
+    
+    }
+  
+  .song{
+    margin-top: 26%;
+  }
+    .song .text h5,
+    .song .text p{
+      max-width: 220px;
+      font-size:3.4vw;
+    }
+    #cver{
+      height: 245px;
+    }
+    .song .playbutton{
+      top: 54%;
+      left:80%;
+      
+      font-size: 60px;
+    }
+    audio{
+      left: 50%;
+    }
+    .icons{
+      font-size: 5vw;
+    }
+    
+  }

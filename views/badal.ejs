@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+
+    <div id="main">
+      <div class="di">
+        <i class="ri-menu-fill"></i>
+      </div>
+        <div class="left">
+         <a href="/">   <button>
+          <i class="ri-home-4-fill"></i>
+          <p>Home</p>
+        </button></a>
+            <a href="/search">
+              <button>
+                <i class="ri-search-line"></i>
+                <p>Search</p>
+              </button>
+            </a>
+            <button>
+              <p>currently playing song</p>
+            </button>
+            <div class="currentsong">
+              <img id="img" src="https://imgs.search.brave.com/853xaEt7hUm_w72wby1_QjAVGfPiE6I2SYVBZz92_Jc/rs:fit:560:320:1/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi84Lzg0L1Nw/b3RpZnlfaWNvbi5z/dmcvNjQwcHgtU3Bv/dGlmeV9pY29uLnN2/Zy5wbmc" alt="">
+          <div class="text">
+            <h5 id="title">title</h5>
+            <p id="artist">artist</p>
+            <p id="album">album</p>
+          </div>
+            </div>
+<a href="/logout">
+  <button>
+    <i class="ri-logout-box-line"></i>
+    <p>logout</p>
+  </button>
+</a>
+          </div>
+<div class="right">
+  <div class="music">
+    <% user.favorateSong.forEach((songs)=>{ %>
+      <div class="song" onclick="songCard('<%=songs.filename %>','/poster/<%= songs.poster %>','<%= songs.title %>','<%= songs.artist %>','<%= songs.album %>')">
+        <img src="/poster/<%= songs.poster %>" alt="">
+        <div id="cver"></div>
+        <div class="text">
+          <h5><%= songs.title %></h5>
+          <p><%= songs.artist %></p>
+          <p><%= songs.album %></p>
+          <div class="icons">
+           
+           
+            <a href="/like/<%= songs.id %>">
+              <% if(user.liked.indexOf(songs.id) === -1){ %>
+                <i class="ri-heart-line"></i>
+            <% }else{ %>
+              <i style="color: red;" class="ri-heart-fill"></i>
+    
+         <% } %>
+            </a>
+               <a href="/save/<%=songs._id %>"> 
+                <% if(user.favorateSong.indexOf(songs.id) === -1){ %>
+                  <i style="color: rgb(255, 174, 0);" class="ri-shield-fill"></i>
+                
+              <% }else{ %>
+                <i class="ri-shield-line"></i>
+      
+           <% } %>
+              </a>
+              </div>
+          
+        </div>
+        <div class="playbutton">
+          <i class="ri-play-circle-fill"></i>
+        </div>
+      </div>
+   <% }) %>
+  </div>
+  <audio src="" controls></audio>
+</div>
+
+    </div>
+    <script>
+        function songCard(filename,poster,songTitle,songArtist,songAlbum){
+document.querySelector("audio").setAttribute('src',`/stream/${filename}`)
+document.querySelector("audio").play()
+var img = document.querySelector("#img")
+ var title = document.querySelector("#title")
+ var artist = document.querySelector("#artist")
+ var album = document.querySelector("#album")
+ img.src = poster
+ title.innerText = songTitle
+ artist.innerText = songArtist
+ album.innerText = songAlbum
+  }
+  var di = document.querySelector(".di")
+  var left = document.querySelector(".left")
+  var flag = 0
+  di.addEventListener("click",function(){
+    if(flag === 0){
+ left.style.top = "0%"
+ flag = 1
+}
+else{
+ left.style.top = "-100%"
+flag = 0
+}
+  })
+
+
+    </script>
+</body>
+</html>
