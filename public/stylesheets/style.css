@@ -51,6 +51,7 @@
     height: 100%;
     width: 20%;
     background-color: #121212;
+    position: fixed;
   }
   .left button{
     font-size: 30px;
@@ -135,7 +136,8 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   
-  
+position: relative;
+left: 19%;
   }
   #int {
     padding: 10px 20px;
@@ -402,7 +404,8 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-    
+position: relative;
+left: 1%;
       -ms-flex-wrap: wrap;
     
           flex-wrap: wrap;
