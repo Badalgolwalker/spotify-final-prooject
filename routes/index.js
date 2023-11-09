@@ -15,7 +15,7 @@ passport.use(new localStrategy(usermodel.authenticate()))
 var mongoose = require("mongoose");
 const { stringify } = require('querystring');
 
-mongoose.connect("mongodb+srv://badalgolwalker:8112@cluster0.ggv7k7e.mongodb.net/").then(() => {
+mongoose.connect("mongodb+srv://badalgolwalkar:8112@cluster0.lceutz0.mongodb.net/spt-n15").then(() => {
   console.log("user connectd successfuly")
 }).catch(err => {
   console.log(err)
