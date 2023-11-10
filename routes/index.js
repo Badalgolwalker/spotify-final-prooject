@@ -7,15 +7,17 @@ var songmodel = require('../modals/song');
 var localStrategy = require("passport-local");
 var { Readable } = require("stream")
 var crypto = require("crypto")
+require('dotenv').config();
 // node -i3 ek package he ye hue song ke buufer codde se poster nikle ke deta he  is mean bufer code se koi bhi dta 
 
 var id3 = require("node-id3")
 var multer = require("multer")
 passport.use(new localStrategy(usermodel.authenticate()))
 var mongoose = require("mongoose");
+const uri = process.env.MONGODB_URI;
 const { stringify } = require('querystring');
 
-mongoose.connect("mongodb+srv://badalrandom2002:8112@cluster0.wuhvr9f.mongodb.net/").then(() => {
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
   console.log("user connectd successfuly")
 }).catch(err => {
   console.log(err)
@@ -32,28 +34,32 @@ conn.once('open', () => {
   })
 })
 /* GET home page. */
-router.post("/register",  function (req, res, next) {
-  var newUSer = new usermodel({
-    username: req.body.username,
-    email: req.body.email
-  })
-  usermodel.register(newUSer, req.body.password)
-    .then(function (u) {
-      passport.authenticate('local')(req, res, async function () {
-        const songs = await songmodel.find()
-        const defaultPlaylist = await playlistmodel.create({
-          name: "defaultPlaylist",
-          owner: req.user._id,
-          songs: songs.map(song => song._id)
-        })
-        let newUser = await usermodel.findOne({ _id: req.user._id })
-        newUser.playlist.push(defaultPlaylist._id)
-        await newUser.save()
-        // console.log(JSON.stringify(currentUser))
-        res.redirect('/')
-      })
-    })
-})
+router.post("/register", async function (req, res, next) {
+  try {
+    var newUSer = new usermodel({
+      username: req.body.username,
+      email: req.body.email
+    });
+    const registeredUser = await usermodel.register(newUSer, req.body.password);
+    await passport.authenticate('local')(req, res, async function () {
+      const songs = await songmodel.find();
+      const defaultPlaylist = await playlistmodel.create({
+        name: "defaultPlaylist",
+        owner: req.user._id,
+        songs: songs.map(song => song._id)
+      });
+      let newUser = await usermodel.findOne({ _id: req.user._id });
+      newUser.playlist.push(defaultPlaylist._id);
+      await newUser.save();
+      res.redirect('/');
+    });
+  } catch (error) {
+    console.error("Error in registration:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
 router.post('/login', passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login"
