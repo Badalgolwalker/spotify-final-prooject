@@ -15,7 +15,7 @@ passport.use(new localStrategy(usermodel.authenticate()))
 var mongoose = require("mongoose");
 const { stringify } = require('querystring');
 
-mongoose.connect("mongodb+srv://badalgolwalkar:8112@cluster0.advxtjq.mongodb.net/?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://badalrandom2002:8112@cluster0.wuhvr9f.mongodb.net/").then(() => {
   console.log("user connectd successfuly")
 }).catch(err => {
   console.log(err)
@@ -32,7 +32,7 @@ conn.once('open', () => {
   })
 })
 /* GET home page. */
-router.post("/register", async function (req, res, next) {
+router.post("/register",  function (req, res, next) {
   var newUSer = new usermodel({
     username: req.body.username,
     email: req.body.email
