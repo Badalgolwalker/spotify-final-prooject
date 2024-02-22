@@ -46,7 +46,7 @@
 <div class="right">
   <div class="music">
     <% user.favorateSong.forEach((songs)=>{ %>
-      <div class="song" onclick="songCard('<%=songs.filename %>','/poster/<%= songs.poster %>','<%= songs.title %>','<%= songs.artist %>','<%= songs.album %>')">
+      <div class="song">
         <img src="/poster/<%= songs.poster %>" alt="">
         <div id="cver"></div>
         <div class="text">
@@ -76,7 +76,7 @@
               </div>
           
         </div>
-        <div class="playbutton">
+        <div class="playbutton" onclick="songCard('<%=songs.filename %>','/poster/<%= songs.poster %>','<%= songs.title %>','<%= songs.artist %>','<%= songs.album %>')">
           <i class="ri-play-circle-fill"></i>
         </div>
       </div>
@@ -87,9 +87,18 @@
 
     </div>
     <script>
+      var fl = 0
         function songCard(filename,poster,songTitle,songArtist,songAlbum){
 document.querySelector("audio").setAttribute('src',`/stream/${filename}`)
-document.querySelector("audio").play()
+if(fl === 0){
+  document.querySelector("audio").play()
+  fl = 1
+}
+else{
+  document.querySelector("audio").pause()
+  fl = 0
+}
+
 var img = document.querySelector("#img")
  var title = document.querySelector("#title")
  var artist = document.querySelector("#artist")

@@ -124,12 +124,13 @@ const upload = multer({ storage: storage })
 router.post('/uploadmusic', islogedIn, isAdmin, upload.array("song"), async function (req, res, next) {
 
   await Promise.all(req.files.map(async file => {
+   
     const randomName = crypto.randomBytes(20).toString("hex")
     const songData = id3.read(file.buffer)
 
     Readable.from(file.buffer).pipe(gfsBucket.openUploadStream(randomName))
     Readable.from(songData.image.imageBuffer).pipe(gfsBucketPoster.openUploadStream(randomName + 'poster'))
-    // console.log(songData)
+    console.log(songData)
 
     await songmodel.create({
       title: songData.title,
@@ -183,7 +184,7 @@ router.get("/like/:id", islogedIn, (req, res, next) => {
     .then(function (user) {
       songmodel.findOne({ _id: req.params.id })
         .then(function (song) {
-          if (song.likes.indexOf(user._id) && user.liked.indexOf(song._id) === -1) {
+          if (song.likes.indexOf(user._id) === -1 && user.liked.indexOf(song._id) === -1) {
             song.likes.push(user._id)
             user.liked.push(song._id)
           }
@@ -191,7 +192,7 @@ router.get("/like/:id", islogedIn, (req, res, next) => {
             song.likes.splice(song.likes.indexOf(user._id), 1)
             user.liked.splice(user.liked.indexOf(song._id), 1)
           }
-          console.log(song.likes)
+          console.log(song.likes) 
           console.log(user.liked)
           user.save()
           song.save()

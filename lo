@@ -75,36 +75,11 @@
       <div class="song">
   
         <img src="/poster/<%= songs.poster %>" alt="">
-        <!-- <div id="cver"></div> -->
+        <div id="cver"></div>
         <div class="text">
           <h5><%= songs.title %></h5>
           <p><%= songs.artist %></p>
           <p><%= songs.album %></p>
-        
-  <div class="icons">
-  <a href="/like/<%= songs.id %>">
-  <% if(currentUser.liked.indexOf(songs.id) === -1){ %>
-    <i class="ri-heart-line"></i>
-<% }else{ %>
-  <i style="color: red;" class="ri-heart-fill"></i>
-
-<% } %>
-</a>
- 
-
-<% if(currentUser.playlist.length === 2){ %>
-<a href="/save/<%=songs._id %>"> 
-  <% if(currentUser.favorateSong.indexOf(songs.id) === -1  ){ %>
-    <i class="ri-shield-line"></i>
-    
-  <% } else { %>
-    <i style="color: rgb(255, 174, 0);" class="ri-shield-fill"></i>
-  <% } %>
-</a>
-<% } %>
-
-
-</div> 
         </div>
       
         <div class="playbutton"  onclick="songCard('<%=songs.filename %>','/poster/<%= songs.poster %>','<%= songs.title %>','<%= songs.artist %>','<%= songs.album %>')">
@@ -187,10 +162,6 @@ else{
  left.style.top = "-100%"
 flag =0
 }
-  })
-  var hello = document.querySelector("#heloo")
-  hello.addEventListener("click",() =>{
-    console.log("hello")
   })
 
 </script>
